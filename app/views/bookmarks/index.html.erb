@@ -1,5 +1,10 @@
 <h1>Bookmarks#index</h1>
-<p>Find me in app/views/bookmarks/index.html.erb</p>
+<p>Here's a list of all Blocmarks</p>
 <% @bookmarks.each do |bookmark| %>
   <p><%= link_to bookmark.title, "#{bookmark.url}" %></p>
 <% end %>
+
+<container>
+  <h3>Create a new bookmark</h3>
+    <%= render partial: "form", locals: {bookmark: @bookmark} %>
+</container>
