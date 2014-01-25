@@ -25,6 +25,8 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'acts-as-taggable-on', '2.4.1'
+
 group :development do
   gem 'sqlite3'
 end

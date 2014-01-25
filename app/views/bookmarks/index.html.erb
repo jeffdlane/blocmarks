@@ -1,7 +1,10 @@
 <h1>Bookmarks#index</h1>
-<p>Here's a list of all Blocmarks</p>
+<p>Here's a list of Blocmarks. <%= link_to "Show All", bookmarks_path %></p>
 <% @bookmarks.each do |bookmark| %>
   <p><%= link_to bookmark.title, "#{bookmark.url}" %></p>
+  <% if not bookmark.tag_list.empty? %>
+    <p>Tags: <%= raw bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+  <% end %>
 <% end %>
 
 <container>

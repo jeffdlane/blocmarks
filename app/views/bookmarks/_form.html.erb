@@ -1,9 +1,18 @@
 <%= form_for :bookmark do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
 
-  <%= f.label :url %>
-  <%= f.text_field :url %>
+  <div class="field">
+    <%= f.label :tag_list, "Separate tags with commas" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
 
   <%= f.submit "Save" %>
 <% end %>
