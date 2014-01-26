@@ -41,7 +41,11 @@ GEM
     execjs (2.0.2)
     faker (1.2.0)
       i18n (~> 0.5)
+    griddler (0.6.3)
+      htmlentities
+      rails (>= 3.2.0)
     hike (1.2.3)
+    htmlentities (4.3.1)
     i18n (0.6.9)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
@@ -116,6 +120,7 @@ DEPENDENCIES
   acts-as-taggable-on (= 2.4.1)
   coffee-rails (~> 4.0.0)
   faker
+  griddler
   jbuilder (~> 1.2)
   jquery-rails
   pg

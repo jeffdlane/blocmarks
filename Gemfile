@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'acts-as-taggable-on', '2.4.1'
 
+gem 'griddler'
+
 group :development do
   gem 'sqlite3'
 end
