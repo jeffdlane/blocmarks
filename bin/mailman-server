@@ -1,0 +1,7 @@
+#!/user/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+require 'mailman'
+
+puts 'hello world'

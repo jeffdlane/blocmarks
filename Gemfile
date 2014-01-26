@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'acts-as-taggable-on', '2.4.1'
 
+gem 'mailman', require: false
+
 group :development do
   gem 'sqlite3'
 end
@@ -34,6 +36,7 @@ end
 group :production do
   # Use sqlite3 as the database for Active Record
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 group :doc do

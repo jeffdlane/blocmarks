@@ -16,10 +16,26 @@ class BookmarksController < ApplicationController
   end
 
   def create
-    @bookmark = Bookmark.create(bookmark_params)
-    @bookmark.save!
-    redirect_to action: 'index'
 
+    if message.exists?
+      Rails.logger.info params
+      message = Message.new(
+        #:to => params[:envelope][:to],
+        #:from => params[:envelope][:from],
+        :title => params[:headers]['Subject'],
+        :url => params[:plain]
+      )
+      if message.save
+        render :text => 'Success', :status => 200
+      else
+        render :text => message.errors.full_messages, :status => 422, :content_type => Mime::TEXT.to_s
+      end
+
+    else
+      @bookmark = Bookmark.create(bookmark_params)
+      @bookmark.save!
+      redirect_to action: 'index'
+    end
   end
 
   def edit
