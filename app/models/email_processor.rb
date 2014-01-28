@@ -1,11 +1,20 @@
 class EmailProcessor
   def self.process(email)
-    Bookmark.create!({ title: email.subject, url: email.body, tag_list: email.body })
+    title_processor(email.subject)
+    Bookmark.create!({ title: @title, url: @url, tag_list: email.body })
   end
 
-  def self.tags_processor(email)
-    @tags = email.body.split(", ")
+  def self.title_processor(email_subject)
+    if email_subject.include? ","
+      email_subject = email_subject.split(",").strip
+      @title = email_subject.first
+      @url = email_subject.last
+    else
+      @title = email_subject
+      @url = email_subject
+    end
   end
+
 
 end
 
