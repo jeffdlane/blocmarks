@@ -4,7 +4,7 @@ class EmailProcessor
     Bookmark.create!({ title: @title, url: @url, tag_list: email.body })
   end
 
-  def self.title_processor(email_subject)
+  def title_processor(email_subject)
     if email_subject.include? ","
       email_subject = email_subject.split(",").strip
       @title = email_subject.first
