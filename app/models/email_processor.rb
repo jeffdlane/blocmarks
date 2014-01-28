@@ -5,7 +5,7 @@ class EmailProcessor
       @title = email_subject.first
       @url = email_subject.last
     else
-      @title = email_subject.
+      @title = email_subject
       @url = email_subject
     end
     Bookmark.create!({ title: @title, url: @url, tag_list: email.body })
