@@ -1,2 +1,19 @@
-<h1>Bookmarks#edit</h1>
-<p>Find me in app/views/bookmarks/edit.html.erb</p>
+<h3>Edit a bookmark</h3>
+<%= form_for :bookmark, url: bookmark_path, method: :patch do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :tag_list, "Separate tags with commas" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+
+  <%= f.submit "Save" %>
+<% end %>
