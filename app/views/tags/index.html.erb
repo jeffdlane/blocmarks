@@ -1,0 +1,10 @@
+<h1>Tags#index</h1>
+<p>Find me in app/views/tags/index.html.erb</p>
+
+  <h3>List of all tags</h3>
+    <% Bookmark.tag_counts_on(:tags).each do |tag| %>
+      <h4><%= link_to tag.name, tag_path(tag.name) %></h4>
+      <% @bookmarks.each do |bookmark| %>
+        <p><%= link_to bookmark.title, "#{bookmark.url}" %></p>
+      <% end %>
+    <% end %>
