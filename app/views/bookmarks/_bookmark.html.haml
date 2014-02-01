@@ -1,0 +1,7 @@
+.bookmark
+  = link_to bookmark.title, "#{bookmark.url}"
+  = link_to "edit", edit_bookmark_path(bookmark[:id])
+  - if not bookmark.tag_list.empty?
+    .tags
+      Tags: 
+      = raw (bookmark.tag_list.map { |t| link_to t, tag_path(t) }.join(', '))

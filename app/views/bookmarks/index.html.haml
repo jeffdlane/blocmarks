@@ -1,0 +1,13 @@
+%h1 Bookmarks#index
+%p 
+  Here's a list of Blocmarks
+  = link_to "Show All", bookmarks_path
+
+= render @bookmarks
+
+%h3 Create a new bookmark
+= render partial: "bookmarks/form", locals: {bookmark: Bookmark.new}
+
+%h3 List of all tags
+- Bookmark.tag_counts_on(:tags).each do |tag|
+  = link_to tag.name, tag_path(tag.name)

@@ -29,8 +29,12 @@ gem 'acts-as-taggable-on', '2.4.1'
 
 gem 'griddler'
 
-group :development do
+gem 'haml-rails'
+
+group :development, :test do
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :production do

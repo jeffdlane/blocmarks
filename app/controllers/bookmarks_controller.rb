@@ -1,10 +1,6 @@
 class BookmarksController < ApplicationController
   def index
-    if params[:tag]
-      @bookmarks = Bookmark.tagged_with(params[:tag])
-    else
-      @bookmarks = Bookmark.all
-    end
+    @bookmarks = Bookmark.all
   end
 
   def show

@@ -1,0 +1,8 @@
+%h1 Tags#index
+%p Find me in app/views/tags/index.html.erb
+
+%h3 List of all tags
+- @tags.each do |tag|
+  %h4= link_to tag.name, tag_path(tag.name)
+  - Bookmark.tagged_with(tag.name).each do |bookmark|
+    %p= link_to bookmark.title, "#{bookmark.url}"
