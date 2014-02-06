@@ -1,0 +1,5 @@
+- if @bookmark.destroyed?
+  $(document.body).prepend("#{escape_javascript(render :partial => 'layouts/flash')}");
+  $('#bookmark-#{@bookmark.id}').hide();
+- else
+  $alert("uh oh");

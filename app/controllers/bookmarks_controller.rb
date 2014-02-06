@@ -1,4 +1,6 @@
 class BookmarksController < ApplicationController
+  respond_to :html, :js
+
   def index
     @bookmarks = Bookmark.all
   end
@@ -15,7 +17,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.create(bookmark_params)
     @bookmark.save!
     redirect_to action: 'index'
-
+    flash[:notice] = "Bookmark created"
   end
 
   def edit
@@ -25,7 +27,21 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     @bookmark.update_attributes(bookmark_params)
-    redirect_to action: 'index'
+    flash[:notice] = "Bookmark updated"
+    redirect_to action: 'index', notice: "bookmark updated"
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    if @bookmark.destroy
+      flash[:notice] = "Bookmark deleted"
+    else
+      flash[:error] = "Something went wrong"
+    end
+
+    respond_with(@bookmark) do |f|
+      f.html { redirect_to action 'index'}
+    end
   end
 
 private

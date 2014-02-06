@@ -1,6 +1,7 @@
-.bookmark
+.bookmark{:id => "bookmark-#{bookmark.id}"}
   = link_to bookmark.title, "#{bookmark.url}"
   = link_to "edit", edit_bookmark_path(bookmark[:id])
+  = link_to "delete", bookmark_path(bookmark[:id]), :method => :delete, remote: true
   - if not bookmark.tag_list.empty?
     .tags
       Tags: 
