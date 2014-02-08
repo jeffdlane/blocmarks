@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   respond_to :html, :js
+  before_filter :authorize, only: [:edit, :update, :destroy]
 
   def index
     @bookmarks = Bookmark.all
