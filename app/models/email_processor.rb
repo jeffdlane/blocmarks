@@ -2,6 +2,7 @@ class EmailProcessor
   def self.process(email)
     if self.authenticate(email)
       self.create_bookmark(email)
+    end
   end
 
   def self.authenticate(email)
