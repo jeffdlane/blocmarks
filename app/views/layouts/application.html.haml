@@ -10,7 +10,7 @@
     #user_header
       - if current_user
         Logged in as
-        = current_user.email
+        = link_to current_user.email, user_path(current_user.id)
         = link_to "Log Out", logout_path, method: :delete
       - else
         = link_to "Sign Up", signup_path

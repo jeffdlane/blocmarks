@@ -1,6 +1,7 @@
 class EmailProcessor
   def self.process(email)
     if self.authenticate(email)
+      puts "authentication succeeded"
       self.create_bookmark(email)
     end
   end
@@ -18,8 +19,8 @@ class EmailProcessor
       @title = email.subject
       @url = email.subject
     end
-
-    Bookmark.create!({ title: @title, url: @url, tag_list: email.body })    
+    @user_id = User.find_by_email(email.from).id
+    Bookmark.create!({ title: @title, url: @url, user_id: @user_id, tag_list: email.body })    
   end
 
 end

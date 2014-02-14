@@ -1,0 +1,9 @@
+%h1 User Page
+
+= render partial: "bookmarks/bookmark", locals: {bookmark: @bookmark}
+
+
+- @tags.each do |tag|
+  %h4= link_to tag.name, tag_path(tag.name)
+  - Bookmark.tagged_with(tag.name).each do |bookmark|
+    %p= link_to bookmark.title, "#{bookmark.url}"

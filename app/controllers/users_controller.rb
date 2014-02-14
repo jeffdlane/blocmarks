@@ -13,6 +13,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    @tags = Bookmark.find_by(user_id: @user.id).tag_counts
+    @bookmark = Bookmark.find_by(user_id: @user.id)
+  end
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
   end
