@@ -1,10 +1,9 @@
 class EmailProcessor
   def self.process(email)
-    #if self.authenticate(email)
-    #  puts "authentication succeeded"
-    #  self.create_bookmark(email)
-    #end
-    self.create_bookmark(email)
+    if self.authenticate(email)
+     puts "authentication succeeded"
+     self.create_bookmark(email)
+    end
   end
 
   def self.authenticate(email)
