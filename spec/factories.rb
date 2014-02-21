@@ -28,6 +28,7 @@ FactoryGirl.define do
   factory :bookmark do
     title "First Bookmark"
     url "http://www.bacon.com"
+    user
   end
 
 end
