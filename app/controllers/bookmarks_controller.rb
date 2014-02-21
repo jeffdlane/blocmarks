@@ -28,10 +28,6 @@ class BookmarksController < ApplicationController
   def update
     @bookmark = Bookmark.find(params[:id])
     @bookmark.update_attributes(bookmark_params)
-    puts params
-    puts @bookmark
-    puts @bookmark.valid?
-    raise ''
     flash[:notice] = "Bookmark updated"
     redirect_to action: 'index', notice: "bookmark updated"
   end
